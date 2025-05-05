@@ -38,12 +38,10 @@ public class SecurityConfig {
 
     @Bean
     public UserDetailsService testUser(){
-        User.UserBuilder user = User.builder();
-        UserDetails userDetails =
-                user.username("pepe")
-                        .password(passwordEncoder().encode("abc123"))
-                        .roles()
-                        .build();
+        UserDetails userDetails = User.withUsername("pepe")
+                .password(passwordEncoder().encode("123"))
+                .roles()
+                .build();
         return new InMemoryUserDetailsManager(userDetails);
     }
 }
